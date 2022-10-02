@@ -37,7 +37,7 @@ namespace MainProram
         public void MyMethod2()
         {
             _tracer.StartTrace();
-            //Thread.Sleep(111);
+
             _bar.InnerMethod();
 
             _tracer.StopTrace();
@@ -99,8 +99,8 @@ namespace MainProram
 
         public void JsonXmlToFile(string[] jsonAndXml)
         {
-            File.WriteAllText("result.json", jsonAndXml[0]);
-            File.WriteAllText("result.xml", jsonAndXml[1]);
+            File.WriteAllText("E:/result.json", jsonAndXml[0]);
+            File.WriteAllText("E:/result.xml", jsonAndXml[1]);
         }
     }
 }
