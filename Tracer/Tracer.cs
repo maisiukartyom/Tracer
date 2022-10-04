@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Reflection;
 using System.Text.Json;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace TracerApp
@@ -114,9 +115,16 @@ namespace TracerApp
             };
             string json = JsonSerializer.Serialize<List<TraceResult>>(TRL, options);
 
+            
             XmlSerializer formatter = new XmlSerializer(typeof(List<TraceResult>));
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
             StringWriter textWriter = new StringWriter();
-            formatter.Serialize(textWriter, TRL);
+            using (XmlWriter writer = XmlWriter.Create(textWriter, settings))
+            {
+                formatter.Serialize(writer, TRL);
+            }
+            
 
             string[] result = { json, textWriter.ToString() };
             return result;

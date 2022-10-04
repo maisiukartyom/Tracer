@@ -86,7 +86,7 @@ namespace MainProram
             _tracer.StopTrace();
         }
     }
-    class WriterResult
+    public class WriterResult
     {
         public void JsonXmlToConsole(string[] jsonAndXml)
         {
@@ -99,8 +99,8 @@ namespace MainProram
 
         public void JsonXmlToFile(string[] jsonAndXml)
         {
-            File.WriteAllText("E:/result.json", jsonAndXml[0]);
-            File.WriteAllText("E:/result.xml", jsonAndXml[1]);
+            File.WriteAllText("result.json", jsonAndXml[0]);
+            File.WriteAllText("result.xml", jsonAndXml[1]);
         }
     }
 }
